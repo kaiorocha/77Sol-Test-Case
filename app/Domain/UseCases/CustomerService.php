@@ -5,8 +5,6 @@ namespace App\Domain\UseCases;
 use App\Domain\Entities\Customer as CustomerEntity;
 use App\Domain\Interfaces\CustomerRepository as CustomerRepository;
 use App\Domain\Interfaces\ViewModel;
-use App\Http\Resources\Customer\IndexResource;
-use App\Http\Resources\Customer\ShowResource;
 
 class CustomerService implements Customer
 {
@@ -27,12 +25,20 @@ class CustomerService implements Customer
 
     public function show(int $id): ViewModel
     {
+        if (!$this->repository->isActive($id)){
+            return $this->output->error('Customer Not Found!!!', 400);
+        }
+
         $customer = $this->repository->show($id);
         return $this->output->customerShow($customer);
     }
 
     public function delete(int $id): ViewModel
     {
+        if (!$this->repository->isActive($id)){
+            return $this->output->error('Customer Not Found!!!', 400);
+        }
+
         $this->repository->delete($id);
         return $this->output->customerDeleted();
     }
@@ -49,6 +55,10 @@ class CustomerService implements Customer
 
     public function update(CustomerEntity $customer, int $id): ViewModel
     {
+        if (!$this->repository->isActive($id)){
+            return $this->output->error('Customer Not Found!!!', 400);
+        }
+
         $customer = $this->repository->update($customer, $id);
         return $this->output->customerUpdated($customer);
     }

@@ -28,12 +28,20 @@ class ProjectService implements Project
 
     public function show(int $id): ViewModel
     {
+        if (!$this->repository->isActive($id)){
+            return $this->output->error('Customer Not Found!!!', 400);
+        }
+
         $project = $this->repository->show($id);
         return $this->output->projectShow($project);
     }
 
     public function delete(int $id): ViewModel
     {
+        if (!$this->repository->isActive($id)){
+            return $this->output->error('repository Not Found!!!', 400);
+        }
+
         $this->repository->delete($id);
         return $this->output->projectDeleted();
     }
@@ -50,6 +58,10 @@ class ProjectService implements Project
 
     public function update(ProjectEntity $project, int $id): ViewModel
     {
+        if (!$this->repository->isActive($id)){
+            return $this->output->error('Project Not Found!!!', 400);
+        }
+
         $project = $this->repository->update($project, $id);
         return $this->output->projectUpdated($project);
     }

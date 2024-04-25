@@ -104,7 +104,6 @@ class ProjectRepository implements ProjectRepositoryInterface
             $customer = $this->customerRepository->findByDocument(
                 $project->customer_document
             );
-
             $result = $this->model()->findOrFail($id);
             $result->description = $project->getDescription();
             $result->state = $project->getState();
@@ -126,5 +125,12 @@ class ProjectRepository implements ProjectRepositoryInterface
         }
     }
 
-
+    public function isActive(int $id): bool
+    {
+        try {
+            return $this->model()->findOrFail($id) ? true : false;
+        } catch (\Exception $ex) {
+            return false;
+        }
+    }
 }

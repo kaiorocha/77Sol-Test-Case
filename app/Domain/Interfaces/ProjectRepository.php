@@ -10,4 +10,5 @@ interface ProjectRepository
     public function store(ProjectEntity $project): ProjectEntity;
     public function delete(int $id): bool;
     public function update(ProjectEntity $project, int $id): ProjectEntity;
+    public function isActive(int $id): bool;
 }

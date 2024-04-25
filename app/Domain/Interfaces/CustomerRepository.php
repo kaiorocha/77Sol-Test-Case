@@ -12,4 +12,5 @@ interface CustomerRepository
     public function findByDocument(string $document): CustomerEntity;
     public function exists(string $document): bool;
     public function update(CustomerEntity $customer, int $id): CustomerEntity;
+    public function isActive(int $id): bool;
 }

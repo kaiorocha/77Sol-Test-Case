@@ -78,7 +78,10 @@ class CustomerRepository implements CustomerRepositoryInterface
     public function delete(int $id): bool
     {
         try {
-            $this->model()->findOrFail($id)->delete();
+            $customer = $this->model()->findOrFail($id);
+            $customer->projects()->delete();
+            $customer->delete();
+
             return true;
         } catch (\Exception $ex) {
             return false;
@@ -104,6 +107,15 @@ class CustomerRepository implements CustomerRepositoryInterface
                 ->exists();
         } catch (\Exception $ex) {
             throw new \Exception("Failed to retrieve existing document: " . $ex->getMessage());
+        }
+    }
+
+    public function isActive(int $id): bool
+    {
+        try {
+            return $this->model()->findOrFail($id) ? true : false;
+        } catch (\Exception $ex) {
+            return false;
         }
     }
 

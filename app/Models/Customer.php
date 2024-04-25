@@ -21,4 +21,9 @@ class Customer extends Model
         'emails'          => 'array',
         'contact_numbers' => 'array',
     ];
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

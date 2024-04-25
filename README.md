@@ -50,6 +50,10 @@ Para gerar a documentação da API, execute o seguinte comando:
 
 > php artisan l5-swagger:generate
 
+A documentação também pode ser acessar no seguinte link:
+
+> https://documenter.getpostman.com/view/185429/2sA3BrZVui
+
 ## Instruções de Instalação
 
 **1. Melhor maneira de instalar a plataforma:**

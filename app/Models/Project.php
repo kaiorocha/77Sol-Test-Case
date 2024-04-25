@@ -25,4 +25,9 @@ class Project extends Model
         'installation_type' => InstallationType::class,
         'equipments' => 'array',
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }
