@@ -1,0 +1,281 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "77Sol - gerenciamento de projetos",
+        "description": "Está documentação fornece os endpoints e detalhes para a integração com o sistema de gertão de projetos da 77Sol.",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/customers/{id}": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Retorna um cliente cadastrado",
+                "description": "Retorna um cliente cadastrado",
+                "operationId": "472d307317b0276e26ae47975377a4cd",
+                "responses": {
+                    "200": {
+                        "description": "Retorna um cliente pelo ID"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Editar cliente",
+                "description": "Editar Cliente",
+                "operationId": "88724fadb81751fd3cf31633c61bfab3",
+                "requestBody": {
+                    "content": {
+                        "multipart/formdata": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "document"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "text"
+                                    },
+                                    "emails": {
+                                        "type": "text"
+                                    },
+                                    "contact_numbers": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Editar um cliente cadastrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Deleta um cliente cadastrado",
+                "description": "Deleta um cliente cadastrado",
+                "operationId": "1b15a111914cf397567ffbdd2d91abaf",
+                "responses": {
+                    "200": {
+                        "description": "Deleta um cliente pelo ID"
+                    }
+                }
+            }
+        },
+        "/api/customers": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Retornar clientes cadastrados",
+                "description": "Retornar clientes cadastrados",
+                "operationId": "32035d5df6055dc4760dad8505a01e8b",
+                "responses": {
+                    "200": {
+                        "description": "lista de clientes cadastrados"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Cadastrar cliente",
+                "description": "Cadastrar Cliente",
+                "operationId": "3bf666f11570dd5dce90b937fe249982",
+                "requestBody": {
+                    "content": {
+                        "multipart/formdata": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "document"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "text"
+                                    },
+                                    "document": {
+                                        "type": "text"
+                                    },
+                                    "emails": {
+                                        "type": "text"
+                                    },
+                                    "contact_numbers": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cadastra um novo cliente"
+                    }
+                }
+            }
+        },
+        "/api/customers/{id}/projects": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Retornar clientes cadastrados",
+                "description": "Retornar clientes cadastrados",
+                "operationId": "0d6df5965900bf6e1ee536c06ca75769",
+                "responses": {
+                    "200": {
+                        "description": "lista de clientes cadastrados"
+                    }
+                }
+            }
+        },
+        "/api/projects/{id}": {
+            "get": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Retorna um projeto cadastrado",
+                "description": "Retorna um projeto cadastrado",
+                "operationId": "c14223a0c6285323b42cf7540c52af79",
+                "responses": {
+                    "200": {
+                        "description": "Retorna um projeto pelo ID"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Deleta um projeto cadastrado",
+                "description": "Deleta um projeto cadastrado",
+                "operationId": "2f5a94493762a03e485ae626c152bb92",
+                "responses": {
+                    "200": {
+                        "description": "Deleta um projeto pelo ID"
+                    }
+                }
+            }
+        },
+        "/api/projects": {
+            "get": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Retornar projetos cadastrados",
+                "description": "Retornar projetos cadastrados",
+                "operationId": "f5e976472b83a60bd6cfbb18cccd828b",
+                "responses": {
+                    "200": {
+                        "description": "lista de projetos cadastrados"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Editar Projeto",
+                "description": "Editar Projeto",
+                "operationId": "29ec7a190e4b5452b0c7b60f608d7aea",
+                "requestBody": {
+                    "content": {
+                        "multipart/formdata": {
+                            "schema": {
+                                "required": [
+                                    "description",
+                                    "customer_document"
+                                ],
+                                "properties": {
+                                    "description": {
+                                        "type": "text"
+                                    },
+                                    "customer_document": {
+                                        "type": "text"
+                                    },
+                                    "installation_type": {
+                                        "type": "text"
+                                    },
+                                    "equipments": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Editar projeto"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Cadastrar Projeto",
+                "description": "Cadastrar Projeto",
+                "operationId": "b1eb8fcccf133960a2e3334d0874da79",
+                "requestBody": {
+                    "content": {
+                        "multipart/formdata": {
+                            "schema": {
+                                "required": [
+                                    "description",
+                                    "customer_document"
+                                ],
+                                "properties": {
+                                    "description": {
+                                        "type": "text"
+                                    },
+                                    "customer_document": {
+                                        "type": "text"
+                                    },
+                                    "installation_type": {
+                                        "type": "text"
+                                    },
+                                    "equipments": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cadastra um novo projeto"
+                    }
+                }
+            }
+        }
+    }
+}
