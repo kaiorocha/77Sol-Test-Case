@@ -77,7 +77,11 @@ A documentação também pode ser acessar no seguinte link:
 ~~~
 
 ~~~
-5. Finalmente, execute o comando ./vendor/bin/sail up para criar o ambiente docker e iniciar a aplicação.
+5. Execute o comando ./vendor/bin/sail u -d para criar o ambiente docker e iniciar a aplicação.
+~~~
+
+~~~
+6. Finalmente, execute o comando ./vendor/bin/sail artisan migrate para que o banco de dados seja criado.
 ~~~
 
 ## Uso do Sistema
